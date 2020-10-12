@@ -14,10 +14,10 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       
-      - name: list directories
-        shell: bash
-        run: |
-          ls -lha
+      # - name: list directories
+      #   shell: bash
+      #   run: |
+      #     ls -lha
       
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1.4
@@ -26,8 +26,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.sources=./src/NumberConverter.Core/**
-            -Dsonar.tests=./tests/NumberConverter.Test/**
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.sources=./src/NumberConverter.Core/
+            -Dsonar.tests=./tests/NumberConverter.Test/
             -Dsonar.projectKey=Fabioh_NumberConverter
             -Dsonar.organization=fabioh
     
