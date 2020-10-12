@@ -1,14 +1,14 @@
 ﻿using FluentAssertions;
+using NumberConverter.Core;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
-using static NumberConverter.Core.DecimalToBinary;
 
 namespace NumberConverter.Test
 {
     public class DecimalToBinaryTests
     {
+        private static readonly IDecimalToBinary _coverter = new MyDecimalToBinary();
+
         [InlineData(1, "1")]
         [InlineData(2, "10")]
         [InlineData(3, "11")]
@@ -21,7 +21,7 @@ namespace NumberConverter.Test
         [InlineData(2000, "11111010000")]
         [Theory]
         public void Convert_Integer_To_Binary_String(uint decNumber, string exppected) =>
-            ConvertToString(decNumber)
+            _coverter.ConvertToString(decNumber)
                 .Should()
                 .Be(exppected);
 
@@ -38,7 +38,7 @@ namespace NumberConverter.Test
         [Theory]
         public void Convert_Integer_To_Binary_String_Equals_System_Conversion(uint decNumber)
         {
-            ConvertToString(decNumber)
+            _coverter.ConvertToString(decNumber)
                 .Should()
                 .Be(Convert.ToString(decNumber, 2));
         }

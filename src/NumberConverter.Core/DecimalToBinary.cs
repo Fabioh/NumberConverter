@@ -3,7 +3,7 @@ using System.Text;
 
 namespace NumberConverter.Core
 {
-    public static class DecimalToBinary
+    internal static class DecimalToBinary
     {
         public static string ConvertToString(uint decNumber)
         {
