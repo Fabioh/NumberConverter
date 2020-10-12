@@ -14,6 +14,11 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       
+      - name: list directories
+        shell: bash
+        run: |
+          ls -lha
+      
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v1.4
         env:
