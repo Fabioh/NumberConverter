@@ -20,10 +20,27 @@ namespace NumberConverter.Test
         [InlineData(1024, "10000000000")]
         [InlineData(2000, "11111010000")]
         [Theory]
-        public void ConvertUint(uint decNumber, string exppected) =>
+        public void Convert_Integer_To_Binary_String(uint decNumber, string exppected) =>
             ConvertToString(decNumber)
                 .Should()
                 .Be(exppected);
-        
+
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(5)]
+        [InlineData(7)]
+        [InlineData(33)]
+        [InlineData(50)]
+        [InlineData(72)]
+        [InlineData(1024)]
+        [InlineData(2000)]
+        [Theory]
+        public void Convert_Integer_To_Binary_String_Equals_System_Conversion(uint decNumber)
+        {
+            ConvertToString(decNumber)
+                .Should()
+                .Be(Convert.ToString(decNumber, 2));
+        }
     }
 }
