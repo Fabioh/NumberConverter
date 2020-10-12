@@ -23,6 +23,6 @@ jobs:
           args: >
             -Dsonar.sources=src/NumberConverter.Core/**
             -Dsonar.tests=tests/NumberConverter.Test/**
-            -DprojectKey=Fabioh_NumberConverter
-            -Dorganization=fabioh
+            -Dsonar.projectKey=Fabioh_NumberConverter
+            -Dsonar.organization=fabioh
     
