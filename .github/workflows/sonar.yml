@@ -37,4 +37,5 @@ jobs:
             -Dsonar.tests=./tests/NumberConverter.Test/
             -Dsonar.projectKey=Fabioh_NumberConverter
             -Dsonar.organization=fabioh
+            -Dsonar.cs.opencover.reportsPaths=/tests/NumberConverter.Test/coverage.opencover.xml
     
