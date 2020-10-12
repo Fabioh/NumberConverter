@@ -33,6 +33,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+            -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.test.exclusions=tests/**
             -Dsonar.sources=./src/NumberConverter.Core/
             -Dsonar.tests=./tests/NumberConverter.Test/
