@@ -15,12 +15,14 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       
       - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+        uses: sonarsource/sonarcloud-github-action@1.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          tests: 'tests/NumberConverter.Test'
-          projectKey: Fabioh_NumberConverter
-          organization: fabioh
+          args: >
+            -Dsonar.sources=src/NumberConverter.Core/**
+            -Dsonar.tests=tests/NumberConverter.Test/**
+            -DprojectKey=Fabioh_NumberConverter
+            -Dorganization=fabioh
     
