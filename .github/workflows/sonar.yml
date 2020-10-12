@@ -55,7 +55,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: pwsh
         run: |
-          ./.sonar/scanner/dotnet-sonarscanner begin /k:"Fabioh_NumberConverter" /o:"fabioh" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.sources="./src/NumberConverter.Core/" /d:sonar.tests="./tests/NumberConverter.Test/" /d:sonar.cs.opencover.reportsPaths="./tests/NumberConverter.Test/coverage.opencover.xml"
+          ./.sonar/scanner/dotnet-sonarscanner begin /k:"Fabioh_NumberConverter" /o:"fabioh" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.test.exclusions="tests/**" /d:sonar.tests="./tests/NumberConverter.Test/" /d:sonar.cs.opencover.reportsPaths="./tests/NumberConverter.Test/coverage.opencover.xml"
           dotnet build --configuration Release
           dotnet test  /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
           ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
