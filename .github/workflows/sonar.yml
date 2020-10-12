@@ -21,8 +21,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.sources=src/NumberConverter.Core/**
-            -Dsonar.tests=tests/NumberConverter.Test/**
+            -Dsonar.sources=./src/NumberConverter.Core/**
+            -Dsonar.tests=./tests/NumberConverter.Test/**
             -Dsonar.projectKey=Fabioh_NumberConverter
             -Dsonar.organization=fabioh
     
