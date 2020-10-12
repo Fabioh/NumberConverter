@@ -21,4 +21,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           tests: 'tests/NumberConverter.Test'
+          projectKey: Fabioh_NumberConverter
+          organization: fabioh
     
